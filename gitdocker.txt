@@ -1,0 +1,11 @@
+
+git init
+git clone https://github.com/trogmaiu/trogdocker.git
+
+git add <arquivo>
+git commit -m <mensagem>
+git push -u origin master
+
+usuario: trogmaiu
+senha: i@mat?i789
+foLLowersmens23

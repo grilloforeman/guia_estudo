@@ -1,0 +1,29 @@
+*criar database
+create database testes;
+------------------------------------------------
+*criar tabela
+
+create table politicos( id int(4) AUTO_INCREMENT, nome varchar(30) NOT NULL, descricao varchar(200), PRIMARY KEY(id));
+
+
+
+
+
+nano /etc/mysql/mariadb.conf.d/50-server.cnf
+vai ter a linha
+bind-address            = 127.0.0.1
+alterar
+bind-address            = 0.0.0.0
+
+Criar usuario
+Onde estar remove_server_ip colocar ip do servidor
+Onde esta password colocar a senha
+CREATE USER 'sammy'@'remote_server_ip' IDENTIFIED BY 'password';
+Alterar usuario
+RENAME USER 'sammy'@'localhost' TO 'sammy'@'remote_server_ip';
+
+Dar os privilegios
+GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'sammy'@'remote_server_ip' WITH GRANT OPTION;
+
+Gravar
+FLUSH PRIVILEGES;

@@ -1,0 +1,4 @@
+curl -s eradua.com | grep -i 6MB
+curl - I verificar informacoes apache fingerprint
+
+curl -s executar servidor | entrar pagina sem baixar

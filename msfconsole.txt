@@ -1,0 +1,66 @@
+#searchsploit pesquisar
+searchsploit -m CAMINHO BAIXA O EXPLOIT
+
+##############################MSFCONSOLE###################
+#TEM QUE INICIAS O POSTGRESQL
+sudo systemctl sart postgresql
+sudo msfdb init
+##verificar se estar conectado
+db_status
+#listar o espaco de trabalho
+workspace
+
+#verificar as opcoes 
+workspace -h
+
+#apagar um espaco de trabalho
+workspace -d xxxxx
+
+#criar um espaco de trabalho
+workspace -a eradua
+
+#navegar entre os espacos de trabalho,exemplo
+workspace eradua
+
+#verificar comandos que podem ser usados
+help
+
+#executar o nmap direto do msfconsole,exemplo: 
+db_nmap -sn 192.168.1.0/24
+
+#verificar os hosts
+hosts
+
+#verificar os servicos
+services
+
+#com as opcoes mais comuns
+hosts -h
+services -h
+
+
+######################buscar os exploits
+o exploit que e um pedaco de codigo que pode tirar uma
+vantagem de uma determinada vulnerabilidade em um programa,
+ou serviço alvo, o que vai fazer que ele execute uma payload.
+#### buscar
+search icecast
+#buscar informacao do exploit
+info xxxxxxxxxxxxxxxxxx
+
+#usar o exploit
+use xxxxxxxxxxxxxxxxx
+#verificar as opcoes, aparece tambem a payload. A payload e   codigo que executa algo na maquina alvo, como abrir uma shell,ou obter o controle da interface do alvo. Existem diversos
+payloads.
+#listar as payloads disponiveis para determinado exploit.
+show payloads
+# opcoes
+options
+#seta as opcoes
+set xxxxx
+#opcoes faltando exibir
+show missing
+#executar
+exploit
+#ou 
+run

@@ -1,0 +1,19 @@
+Instalar o qemu
+#apt-get install qemu qemu-kvm
+
+##Verificar a maquina para saber se tem suporte a virtualizacao################
+If you have Intel CPU, then all you have to do is, enable VT-x or VT-d from the 
+BIOS of your motherboard.
+
+For AMD CPU, you have to enable AMD-v from the BIOS of your motherboard.
+
+#lscpu | grep Virt
+--------------------------------------------------------------
+#########################Uso do qemu###########################
+É bom criar uma pasta para alocar as máquinas virtuais.
+Criar o disco
+qemu-img create -f qcow2 vmteste.qcow2 20G
+Acessar a máquina, especificar a memória, carregar a .ISO
+qemu-system-x86_64 -hda vmteste.qcow2 -cdrom 
+/home/foreman/Downloads/ubuntuinstall-dvd.iso -boot d
+

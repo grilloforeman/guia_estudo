@@ -1,0 +1,20 @@
+iptables.
+
+O log do iptables fica no /var/log/messages
+
+# tail -f /var/log/messages
+
+Se quiser alterar para outro arquivo, altere o /etc/syslog.conf
+
+Adicionando a linha:
+
+kern.warning /var/log/iptables.log
+
+Salve e reinicie o syslog:
+
+/etc/init.d/sysklogd restart
+
+
+
+
+cut grep

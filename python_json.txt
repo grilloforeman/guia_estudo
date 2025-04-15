@@ -1,0 +1,67 @@
+Exemplos json
+
+{
+    "ClubName": "Ssquad",
+    "active": true,
+    "members": [
+      {
+        "name": "Joseph Hartley",
+        "age": 22,
+        
+      },
+      {
+        "name": "William Hoffman",
+        "age": 29,
+        
+      },
+      {
+        "name": "Daniel Baker",
+        "age": 33,
+        
+      }
+    ]
+  }
+
+
+Convert JSON to Python
+
+Python comes with a built-in package called json, which is used to manipulate and parse JSON data. Data in json have the .json extension, which lets us know that the file contains data in JSON format.
+
+Create a directory JSON and add two files, namely:
+
+    data.json
+    json_data.py
+
+Add the following to data.json .
+
+{"first_name": "first_name","last_name": "Bullock","Profession": "Actor","gender":"Female","Zodiac":"Dragon"}
+
+To read the contents of the json file, we will first import json and use the open() command to read the file’s contents. Open json_data.py and import the json package.
+
+import json
+
+Read the file using the open() command and print the contents of the data.json file
+
+import jsonwith open('data.json') as json_data:    message = json.load(json_data)    print(message['first_name'])    print(message['Profession'])    print(message['gender'])    print(message['Zodiac'])
+
+Here we are using the json.loads() method to parse the JSON string to a python string. The output will be:
+
+Sandra
+Actor
+Female
+Dragon
+
+2 Writing to a JSON file
+
+Sometimes you want to save JSON data into a file, the JSON package allows you to do that in simple steps.
+
+Suppose we have the following JSON data which you want to save to a file:
+
+movie_data = {"movie_title": "Monsters","genre": "Family","year": "2001","rating":8}
+
+We will use the open() command and add an argument ‘w’, as shown below:
+
+with open("new.json",'w') as new_json:    json.dump(movie_data, new_json)
+
+Here we use the open() command as a write-mode file under the variable new_json and then use the json.dump() method to write to the file.
+json.dump() takes two arguments i.e., the data object, then the file object you want to save.

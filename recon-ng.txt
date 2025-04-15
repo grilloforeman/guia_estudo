@@ -1,0 +1,87 @@
+#####recon-ng##########################
+Coleta de informações públicas, conhecido como OSINT,
+informações públicas, quanto mais online o alvo, mais informações
+sobre o alvo.
+#################################################################
+recon-ng é um framework de reconhecimento web, desenvolvido em python tendo o metasploit msfconsole em mente.
+-eficaz no enumeração de site de redes sociais.
+-permite exportar dados em diversos formatos.
+
+
+
+#criar um espaço de trabalho, exemplo para um alvo.
+# ajuda sobre workspaces
+help workspaces
+#ajuda de tudo
+help
+#criar workspaces
+workspaces create eradua
+#existem vairias tabelas
+db
+#todos os schemas
+db schemas
+# inserir em determinado schema
+db insert domains
+#verificar o que foi inserido
+show domains
+###################usar algum modulo########################
+####ele nao vem com todos os modulos instalados.############
+####existe o mercado de modulos############################
+marktplace
+#exibir todos os modulos
+marktplace search
+#exemplo de hosts
+marktplace search hosts
+
+#instalar modulo
+marktplace install recon/domains-hosts/hackertarget
+#verificar modulos instalados
+modules search
+#utilizar o modulo
+modules load recon/domains-hosts/hackertarget
+#verificar opcoes
+options list
+# verificar com mais detalhes
+info
+#definir opcoes
+options set SOURCE google.com
+#exemplo de query
+set options set source query select domain from domains where rowid=2
+#executar o modulo
+run
+#todos dois alvos
+options set source default
+#unset retirar o valor
+options unset source
+#resumo das atividades
+dashboard
+#exibir somente os valores
+show hosts
+#exibir uma coluna especifica
+db query select ip_address from hosts
+
+###############################################################
+Grupos de modulos no Recon-ng
+
+Discovery: procura informaçĩes insteressantes no 
+ambiente alvo, incluindo o cache DNS bisbilhotando
+para descobrir informações de atualizações de antivirus
+e usando mecanismos de busca para encontrar arquivos
+interessantes, tais como robots.txt e admin console
+Exploitation: inclui recursos para explorar injeçãi de comando
+e outras falhas similares
+import: importa informações de um arquivo csv para o banco de dados.
+reporting: permite exportar os resultados para arquivos
+de varios formatos, como csv, html, json,xlsx e xml
+recon: modulos para realizar varias atividades de reconhecimento.
+###modulos do recon-ng
+
+comapanies: reunir pessoas e hosts associados a empresas especificas atraves de motores de busca, dados whois, e outros
+contacts: colete informacoes sobre pessoas de fontes publicas
+credentials: consultar fontes publicas de dados de violacao para senhas e hashes para nomes de acesso especificos e enderecos de email
+domains: obter informacoes sobre dominios
+hosts: encontrar potenciais hosts-alvo associados a dominios ou empresas especificos
+locations: procurar geo-tags em fotos postadas em sites de redes sociais
+netblocks: colete informacoes sobre atribuicao de enderecos ip e encontre hosts nesses blocos de rede
+ports: encontrar portas abertas
+profiles: coletar perfis de usuarios em redes sociais e outros sites

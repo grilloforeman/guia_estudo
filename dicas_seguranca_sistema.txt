@@ -1,0 +1,36 @@
+* Proteção contra ping da morte
+A regra abaixo pode tomada como base para proteção contra ping flood:
+
+ iptables -t filter -A ping-chain -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT
+
+ iptables -t filter -A ping-chain -j DROP
+
+
+
+*Proteção contra syn flood
+
+iptables -t filter -A syn-chain -p tcp --syn -m limit --limit 2/s -j ACCEPT
+ 
+iptables -t filter -A syn-chain -j DROP
+
+
+
+*Limitando o número de vezes que a regra confere
+
+A opção -m limit permite especificar o número de vezes que uma regra conferirá quando todas as outras condições forem satisfeitas. O número padrão de conferência é de 3 por hora, a não ser que seja modificado através dos argumentos aceitos pelo limit:
+
+    --limit num/tempo - Permite especificar a taxa de conferências do limit. O parâmetro num especifica um número e tempo pode ser
+
+        s - Segundo
+
+        m - Minuto
+
+        h - Hora
+
+        d - Dia
+
+    Assim uma regra como iptables -A INPUT -m limit --limit 5/m -j ACCEPT permitirá que a regra acima confira apenas 5 vezes por minuto (--limit 2/s). Este limite pode ser facilmente adaptado para uma regra de log que confere constantemente não causar uma avalanche em seus logs. O valor padrão é 3/h.
+
+    --limit-burst num - Especifica o número inicial máximo de pacotes que irão conferir, este número é aumentado por 1 a cada vez que o parâmetro --limit acima não for atingido. O valor padrão é 5.
+
+

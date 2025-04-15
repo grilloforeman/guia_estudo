@@ -1,0 +1,13 @@
+CertBOOT
+instalar snapd
+#apt-get install snapd
+Certifique-se de que sua versão do snapd esteja atualizada
+#sudo snap install core; sudo snap refresh core
+Install Certboot
+sudo snap install --classic certbot
+Prepare o certbot comando
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+Escolha como você gostaria de executar o Certbot
+sudo certbot --apache
+Ou, apenas obtenha um certificado
+sudo certbot certonly --apache

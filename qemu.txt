@@ -1,0 +1,35 @@
+Instalar o qemu
+#apt-get install qemu qemu-kvm
+
+##Verificar a maquina para saber se tem suporte a virtualizacao################
+If you have Intel CPU, then all you have to do is, enable VT-x or VT-d from the 
+BIOS of your motherboard.
+
+For AMD CPU, you have to enable AMD-v from the BIOS of your motherboard.
+
+#lscpu | grep Virt
+--------------------------------------------------------------
+#########################Uso do qemu###########################
+É bom criar uma pasta para alocar as máquinas virtuais.
+Criar o disco
+#qemu-img create -f qcow2 slackteste.qcow2 20G
+Acessar a máquina, especificar a memória, carregar a .ISO
+#qemu-system-x86_64 -hda slackteste.qcow2 -cdrom /home/foreman/Downloads/slackwa
+re-15.0-install-dvd.iso -boot d
+
+
+############################instalar kvm no qemu###############
+
+qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
+
+verficar se a libvirt está ativa
+systemctl is-active libvirtd
+Para poder criar as maquinas virtuais, é necessario ter acesso
+a determinados grupos: kvm, libvirt.
+Para verificar
+groups $USER
+Para adicionar aos grupos
+gpasswd -a $USER kvm
+gpasswd -a $USER libvirt
+
+

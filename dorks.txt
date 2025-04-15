@@ -1,0 +1,70 @@
+define:
+Devolve definições de uma palavra ou frase.
+
+Exemplos:
+
+Compare define:privacidade e uma pesquisa simples de privacidade
+
+imagesize:(height)x(width)
+Restringe os resultados de pesquisa de imagens às que têm as dimensões indicadas. Pode usar estas imagens como wallpaper para o desktop ou vídeo thumbnails.
+
+Exemplos:
+
+imagesize:1920×1080
+
+stocks:
+Verifique a atividade financeira de uma determinada ação.
+
+Exemplos:
+
+stocks:TWTR (Twitter)
+stocks:altri
+stocks:corticeira amorim
+
+##@
+Restringe a pesquisa a uma rede social específica. Suporta plataformas populares como o Facebook, 
+Twitter, YouTube e Reddit. Uma desvantagem é que não é tão preciso como o dork “site:”.
+
+Exemplos:
+
+@twitter pentest
+@youtube google dorking
+
+
+##Dorks informativos
+Estes comandos nem sempre funcionam da mesma forma e podem apresentar qualidade de resultados divergente entre diferentes países. Porém, podem ser úteis:
+
+#cache:
+Devolve a última versão de um site, a chamada “cache”, tal como guardada pelo Google.
+
+Exemplos:
+
+Cache:sapo.pt
+link:
+Devolve páginas que “linkem” para o site indicado.
+
+Exemplos:
+
+#Link:publico.pt
+#related:
+Devolve sites relacionados com o site indicado.
+
+Exemplos:
+
+Related:uc.pt
+
+
+##Oradores avançados
+#allintext: Encontra uma ou mais palavras no texto de uma página. 
+Pode parecer óbvio, mas usando “allintext”, você exclui títulos, URLs e links da pesquisa.
+
+#intitle and allintitle: Busca no título da página (aparece no topo da página).
+“intitle” busca no título e no texto da página, mas “allintitle” força a busca no título.
+
+inurl and allinurl: Busca o texto na URL.
+Da mesma forma que to “intitle/allintitle”, “inurl” busca tanto na URL como no texto da página,
+já “allinurl” força a busca apenas na URL.
+
+filetype: Busca por um tipo específico de arquivo.
+O Google não busca apenas páginas na Web, mas vários tipos de arquivos podem ser pesquisados na Internet. Particularmente buscas por páginas que terminam com uma extensão específica de arquivos. A extensão do arquivo é geralmente o último ponto (.) no nome do arquivo. 
+Embora não seja inteiramente exato, a extensão pode informar qual tipo de programa poderá abrir tal arquivo.
